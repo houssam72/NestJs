@@ -22,8 +22,8 @@ export class CoffeesService {
     console.log('Non-class-based Provider Tokens', coffeBrands);
     // Access validated configuration settings using the ConfigService
     const dataBase = this.configService.get<string>(
-      'DATABASE_HOST',
-      'localhost2',
+      'database.host',
+      'localhost',
     );
     console.log('ConfigService', dataBase);
   }
