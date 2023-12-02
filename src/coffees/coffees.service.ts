@@ -6,7 +6,8 @@ import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { Flavor } from './entities/flavor.entity';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto/pagination-query.dto';
-import { ConfigService } from '@nestjs/config';
+import { ConfigService, ConfigType } from '@nestjs/config';
+import coffesConfig from './config/coffes.config';
 
 @Injectable()
 export class CoffeesService {
@@ -18,6 +19,8 @@ export class CoffeesService {
     // private readonly connection: Connection,
     @Inject('COFFEE_BRANDS') coffeBrands: string[],
     private readonly configService: ConfigService,
+    @Inject(coffesConfig.KEY)
+    private readonly coffeesConfiguration: ConfigType<typeof coffesConfig>,
   ) {
     console.log('Non-class-based Provider Tokens', coffeBrands);
     // Access validated configuration settings using the ConfigService
@@ -26,6 +29,9 @@ export class CoffeesService {
       'localhost',
     );
     console.log('ConfigService', dataBase);
+    const coffesConfig0 = this.configService.get('coffees');
+    console.log('coffesConfig0', coffesConfig0);
+    console.log('coffesConfig1', coffeesConfiguration);
   }
 
   findAll(paginationQuery: PaginationQueryDto) {
