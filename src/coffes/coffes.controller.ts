@@ -18,12 +18,14 @@ import { CreateCoffeeDto } from 'src/coffees/dto/create-coffee.dto';
 import { UpdateCoffeeDto } from 'src/coffees/dto/update-coffee.dto';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto/pagination-query.dto';
 import { ParseIntPipe } from '../common/pipes/parse-int/parse-int.pipe';
+import { ApiForbiddenResponse, ApiTags } from '@nestjs/swagger';
 
 @UsePipes(ValidationPipe)
 @Controller('coffes')
+@ApiTags('coffes')
 export class CoffesController {
   constructor(private readonly coffesService: CoffeesService) {}
-
+  @ApiForbiddenResponse({ description: 'Forbiden' })
   @Get('')
   async findAll(@Query() paginationQuery: PaginationQueryDto) {
     // await new Promise((resolve) => setTimeout(resolve, 5000));

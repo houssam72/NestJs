@@ -9,7 +9,7 @@ import * as process from 'process';
 import * as Joi from '@hapi/joi';
 import appConfig from '../app.config';
 import { APP_PIPE } from '@nestjs/core';
-import { CommonModule } from './common/common.module';
+// import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -34,7 +34,7 @@ import { CommonModule } from './common/common.module';
       }),
     }),
     CoffeeRatingModule,
-    CommonModule,
+    // CommonModule,
   ],
   controllers: [AppController],
   providers: [
