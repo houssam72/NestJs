@@ -4,10 +4,9 @@ import { CoffesController } from 'src/coffes/coffes.controller';
 import { CoffeesService } from './coffees.service';
 import { Coffee } from './entities/coffe.entity';
 import { Flavor } from './entities/flavor.entity';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import coffesConfig from './config/coffes.config';
 
-class ConfigService {}
 class DevelopmentConfigService {}
 class ProductionConfigService {}
 

@@ -6,7 +6,6 @@ import {
   Param,
   HttpCode,
   HttpStatus,
-  Res,
   Patch,
   Delete,
   Query,
